@@ -1,0 +1,22 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "MERN Shopping Cart App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/sajjadheydari/proshop.git"
+  },
+  "author": "Sajjad Heydari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/sajjadheydari/proshop/issues"
+  },
+  "homepage": "https://gitlab.com/sajjadheydari/proshop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
