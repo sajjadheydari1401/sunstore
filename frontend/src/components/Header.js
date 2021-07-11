@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { logout } from "../actions/userActions";
+import { withRouter } from "react-router-dom";
 
-const Header = () => {
+const Header = ({history}) => {
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -12,6 +13,7 @@ const Header = () => {
 
   const logoutHandler = () => {
     dispatch(logout());
+    history.push("/login");
   };
 
   return (
@@ -24,11 +26,13 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <LinkContainer to="/cart">
-                <Nav.Link>
-                  <i className="fas fa-shopping-cart"></i> Cart
-                </Nav.Link>
-              </LinkContainer>
+              {userInfo && (
+                <LinkContainer to="/cart">
+                  <Nav.Link>
+                    <i className="fas fa-shopping-cart"></i> Cart
+                  </Nav.Link>
+                </LinkContainer>
+              )}
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="username">
                   <LinkContainer to="/profile">
@@ -66,4 +70,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default withRouter(Header);
