@@ -31,7 +31,7 @@ const ProductListScreen = ({ history, match }) => {
   }, [dispatch, history, userInfo, successDelete]);
 
   const deleteHandler = (id) => {
-    if (window.confirm("Are you sure")) {
+    if (window.confirm("Are you sure?")) {
       dispatch(deleteProduct(id));
     }
   };
